@@ -37,12 +37,24 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(use-package command-log-mode)
+(column-number-mode)
+(global-display-line-numbers-mode t)
+(show-paren-mode)
 
+;; Disable line numbers for some modes
+(dolist (mode '(org-mode-hook
+		term-mode-hook
+		shell-mode-hook
+		eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+(use-package swiper
+  :ensure t)
 (use-package ivy
   :diminish
   :bind (("C-s" . swiper)
          :map ivy-minibuffer-map
+	 ("TAB" . ivy-partial)
          ("C-f" . ivy-alt-done)
          ("C-l" . ivy-alt-done)
          ("C-j" . ivy-next-line)
@@ -57,7 +69,71 @@
   :init
   (ivy-mode 1))
 
+(global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
+
+(define-key emacs-lisp-mode-map (kbd "C-x M-t") 'counsel-load-theme)
+
+(use-package all-the-icons)
+
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 1)))
+
+(use-package doom-themes
+  :init (load-theme 'doom-palenight t))
+
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+(use-package which-key
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 0))
+
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+         ("C-x b" . counsel-ibuffer)
+         ("C-x C-f" . counsel-find-file)
+         :map minibuffer-local-map
+         ("C-r" . 'counsel-minibuffer-history)))  
+
+(use-package helpful
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-key] . helpful-key))
+
+(use-package general)
+
+;; EAF(emacs-application-framework) for an integrated browser or other common gui programs(pdf viewer, music player, etc..)
+(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
+(require 'eaf)
+(require 'eaf-netease-cloud-music)
+(require 'eaf-image-viewer)
+(require 'eaf-mindmap)
+(require 'eaf-markdown-previewer)
+(require 'eaf-video-player)
+(require 'eaf-system-monitor)
+(require 'eaf-file-sender)
+(require 'eaf-file-browser)
+(require 'eaf-vue-demo)
+(require 'eaf-airshare)
+(require 'eaf-file-manager)
+(require 'eaf-pdf-viewer)
+(require 'eaf-camera)
+(require 'eaf-browser)
+(require 'eaf-jupyter)
+(require 'eaf-terminal)
+(require 'eaf-org-previewer)
+(require 'eaf-demo)
+(require 'eaf-music-player)
