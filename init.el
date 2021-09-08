@@ -41,6 +41,29 @@
 (global-display-line-numbers-mode t)
 (show-paren-mode)
 
+;; EAF(emacs-application-framework) for an integrated browser or other common gui programs(pdf viewer, music player, etc..)
+(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
+(require 'eaf)
+(require 'eaf-netease-cloud-music)
+(require 'eaf-image-viewer)
+(require 'eaf-mindmap)
+(require 'eaf-markdown-previewer)
+(require 'eaf-video-player)
+(require 'eaf-system-monitor)
+(require 'eaf-file-sender)
+(require 'eaf-file-browser)
+(require 'eaf-vue-demo)
+(require 'eaf-airshare)
+(require 'eaf-file-manager)
+(require 'eaf-pdf-viewer)
+(require 'eaf-camera)
+(require 'eaf-browser)
+(require 'eaf-jupyter)
+(require 'eaf-terminal)
+(require 'eaf-org-previewer)
+(require 'eaf-demo)
+(require 'eaf-music-player)
+
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
 		term-mode-hook
@@ -115,25 +138,23 @@
 
 (use-package general)
 
-;; EAF(emacs-application-framework) for an integrated browser or other common gui programs(pdf viewer, music player, etc..)
-(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
-(require 'eaf)
-(require 'eaf-netease-cloud-music)
-(require 'eaf-image-viewer)
-(require 'eaf-mindmap)
-(require 'eaf-markdown-previewer)
-(require 'eaf-video-player)
-(require 'eaf-system-monitor)
-(require 'eaf-file-sender)
-(require 'eaf-file-browser)
-(require 'eaf-vue-demo)
-(require 'eaf-airshare)
-(require 'eaf-file-manager)
-(require 'eaf-pdf-viewer)
-(require 'eaf-camera)
-(require 'eaf-browser)
-(require 'eaf-jupyter)
-(require 'eaf-terminal)
-(require 'eaf-org-previewer)
-(require 'eaf-demo)
-(require 'eaf-music-player)
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :demand t
+  :bind ("C-M-p" . projectile-find-file)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/cs")
+    (setq projectile-project-search-path '("~/cs")))
+  (setq projectile-switch-project-action #'dw/switch-project-action))
+
+(use-package counsel-projectile
+  :config (counsel-project-mode))
+
+(use-package magit
+  :bind ("C-M-;" . magit-status)
+  :commands (magit-status magit-get-current-branch)
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
