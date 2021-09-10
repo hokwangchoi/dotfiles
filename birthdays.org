@@ -1,0 +1,11 @@
+* Family
+** TODO Joe<2003-09-12 Fri +1y>
+:PROPERTIES:
+:LAST_REPEAT: [2021-09-10 Fri 09:22]
+:END:
+
+- State "DONE"       from "NEXT"       [2021-09-10 Fri 09:22]
+- State "DONE"       from "NEXT"       [2021-09-10 Fri 09:22]
+- State "DONE"       from "NEXT"       [2021-09-10 Fri 09:10]
+- State "DONE"       from "NEXT"       [2021-09-10 Fri 09:10]
+
