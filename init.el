@@ -22,6 +22,8 @@
 ;; Initialize package sources
 (require 'package)
 
+(package-refresh-contents)
+
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")
                          ("elpa" . "https://elpa.gnu.org/packages/")))
@@ -220,3 +222,4 @@
 (add-to-list 'org-structure-template-alist '("eml" . "src emacs-lisp"))
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
 (add-to-list 'org-structure-template-alist '("cp" . "src cpp"))
+
