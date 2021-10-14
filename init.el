@@ -171,8 +171,7 @@
   :config
   (setq org-ellipsis " ▾"
         org-hide-emphasis-markers t))
-  (setq org-agenda-files '("~/cs/emacs/emacs_from_scratch/dotfiles/tasks.org"
-			   "~/cs/emacs/emacs_from_scratch/dotfiles/birthdays.org"))
+  (setq org-agenda-files '("~/tasks.org"))
   
   (setq org-todo-keywords
 	'((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
@@ -218,8 +217,11 @@
 ;; This is needed as of Org 9.2
 (require 'org-tempo)
 
-(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(Add-to-list 'org-structure-template-alist '("sh" . "src shell"))
 (add-to-list 'org-structure-template-alist '("eml" . "src emacs-lisp"))
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
 (add-to-list 'org-structure-template-alist '("cp" . "src cpp"))
+
+;; #8 lsp-mode: Making my own IDEs
+
 
