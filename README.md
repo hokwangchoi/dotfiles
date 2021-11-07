@@ -2,9 +2,7 @@
 Configurations, tools, and life in front of a computer.
 
 ## Bash
-```
-No action needed.
-```
-- .bashrc, .bash_profile, .bash
+- A type of shell which is common to Linux users.
 
-## Emacs (on Linux)
+## Emacs
+- A powerful text editor.
