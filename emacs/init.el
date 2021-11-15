@@ -1,5 +1,6 @@
 ;; Thanks, but no thanks
 (setq inhibit-startup-message t)
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
 (scroll-bar-mode -1)        ; Disable visible scrollbar
 (tool-bar-mode -1)          ; Disable the toolbar
@@ -42,29 +43,6 @@
 (column-number-mode)
 (global-display-line-numbers-mode t)
 (show-paren-mode)
-
-;; EAF(emacs-application-framework) for an integrated browser or other common gui programs(pdf viewer, music player, etc..)
-(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
-(require 'eaf)
-(require 'eaf-netease-cloud-music)
-(require 'eaf-image-viewer)
-(require 'eaf-mindmap)
-(require 'eaf-markdown-previewer)
-(require 'eaf-video-player)
-(require 'eaf-system-monitor)
-(require 'eaf-file-sender)
-(require 'eaf-file-browser)
-(require 'eaf-vue-demo)
-(require 'eaf-airshare)
-(require 'eaf-file-manager)
-(require 'eaf-pdf-viewer)
-(require 'eaf-camera)
-(require 'eaf-browser)
-(require 'eaf-jupyter)
-(require 'eaf-terminal)
-(require 'eaf-org-previewer)
-(require 'eaf-demo)
-(require 'eaf-music-player)
 
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
@@ -140,18 +118,6 @@
 
 (use-package general)
 
-(use-package projectile
-  :diminish projectile-mode
-  :config (projectile-mode)
-  :demand t
-  :bind ("C-M-p" . projectile-find-file)
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :init
-  (when (file-directory-p "~/cs")
-    (setq projectile-project-search-path '("~/cs")))
-  (setq projectile-switch-project-action #'dw/switch-project-action))
-
 (use-package magit
   :bind ("C-M-;" . magit-status)
   :commands (magit-status magit-get-current-branch)
@@ -171,14 +137,9 @@
   :config
   (setq org-ellipsis " ▾"
         org-hide-emphasis-markers t))
-  (setq org-agenda-files '("~/tasks.org"))
-  
   (setq org-todo-keywords
 	'((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
 	  (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)"               "|" "COMPLETED(c)" "CANC(k@)")))
-
-(setq org-capture-templates
-      '(("t" "Task" entry (file "~/cs/emacs/emacs_from_scratch/dotfiles/tasks.org"))))
 
 
 (use-package org-bullets
