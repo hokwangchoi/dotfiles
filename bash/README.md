@@ -6,3 +6,6 @@ echo $SHELL
 - If the above command prints `/bin/bash` or any path with `bash`. You are welcome!
 - All files related to .bash* (except .bash_history).
 - Look into the files and take only the necessary part of bash script. Otherwise, undesired bash variables or aliases might be set.
+
+## bash history
+It is useful to be able to see the history of bash commands.
