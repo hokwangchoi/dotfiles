@@ -24,12 +24,6 @@
 (setq whitespace-style '(face tabs tab-mark spaces space-mark trailing lines-tail))
 
 (after! format
-  ;; (when (string= (system-name) "ddln-x1")
-  ;;   (set-formatter! 'clang-format
-  ;;     '("clang-format"
-  ;;       "-style=file /home/cpg/Documents/repos/exp/.clang-format"
-  ;;       ("-assume-filename=%S" (or buffer-file-name mode-result "")))
-  ;;     ))
   (set-formatter! 'black "black -q --line-length=119 - ")
 )
 
