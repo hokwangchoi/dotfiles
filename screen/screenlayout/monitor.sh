@@ -4,3 +4,5 @@ xrandr --dpi 150
 xrdb /home/hc/.screenlayout/.Xresources_monitor
 xset -dpms
 xset s off
+
+nitrogen --set-auto /home/hc/Pictures/Wallpapers/heli_ddln_3840.jpg --head=0 && nitrogen --set-auto /home/hc/Pictures/Wallpapers/heli_ddln.jpg --head=1
