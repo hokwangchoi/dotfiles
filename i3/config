@@ -181,12 +181,9 @@ bar {
         status_command i3status
 }
 
-# Wallpaper
-exec --no-startup-id nitrogen --set-auto /home/hc/Pictures/Wallpapers/heli_ddln_3840.jpg --head=0 && nitrogen --set-auto /home/hc/Pictures/Wallpapers/heli_ddln.jpg --head=1
-
 # Lockscreen
-bindsym $mod+Shift+s exec i3lock -c 000000 -i /home/hc/Pictures/Wallpapers/earth.png -t && systemctl suspend
-bindsym $mod+Shift+l exec i3lock -c 000000 -i /home/hc/Pictures/Wallpapers/earth.png -t
+bindsym $mod+Shift+s exec i3lock -c 000000 -i /home/hc/Pictures/Wallpapers/gardi.png -t && systemctl suspend
+bindsym $mod+Shift+l exec i3lock -c 000000 -i /home/hc/Pictures/Wallpapers/gardi.png -t
 bindsym $mod+Shift+h exec systemctl hibernate
 bindsym $mod+Shift+Control+s exec shutdown -h now
 
