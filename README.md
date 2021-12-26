@@ -9,3 +9,6 @@ Configurations, tools, and life in front of a computer.
 
 ## Doom Emacs
 - Advanced configured Emacs kit: https://github.com/hlissner/doom-emacs .
+
+## i3
+- A excellent window manager.
